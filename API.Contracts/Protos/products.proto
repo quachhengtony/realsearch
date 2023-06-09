@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "API.Protos";
+
+package products;
+
+service ProductService {
+  rpc GetProducts (GetProductsRequest) returns (GetProductsResponse);
+  rpc BuyProducts (BuyProductsRequest) returns (ActionStatusReponse);
+}
+
+message BuyProductsRequest {
+  string buyerEmail = 1;
+  repeated string id = 2;
+}
+
+message GetProductsRequest {
+  string userEmail = 1;
+  string searchQuery = 2;
+  int32 mode = 3;
+  int32 page = 4;
+}
+
+message GetProductsResponse {
+  repeated ProductDto productDto = 1;
+}
+
+message ProductDto {
+  int32 id = 1;
+  string productDescription = 2;
+  string productImageUrl = 3;
+  float score = 4;
+}
+
+message ActionStatusReponse {
+  string status = 1;
+}

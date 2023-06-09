@@ -1,0 +1,7 @@
+.vs
+.vscode
+.gitignore
+ImagePreprocessor
+Ingestor
+myntradataset
+volumes
